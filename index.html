@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sarah Chen - Data Scientist & Product Analyst</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#4F46E5", secondary: "#A5B4FC" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+      }
+      .gradient-bg {
+      background: linear-gradient(135deg, #ffffff 0%, #EEF2FF 100%);
+      }
+      .card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+      .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -37px;
+      top: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: #4F46E5;
+      border: 4px solid white;
+      z-index: 1;
+      }
+      .timeline-item::after {
+      content: '';
+      position: absolute;
+      left: -28px;
+      top: 20px;
+      bottom: -40px;
+      width: 2px;
+      background-color: #E5E7EB;
+      z-index: 0;
+      }
+      .timeline-item:last-child::after {
+      display: none;
+      }
+      .rotating-text {
+      animation: rotate 8s infinite;
+      width: 100%;
+      }
+      .rotating-text p {
+      opacity: 0;
+      position: absolute;
+      width: 100%;
+      transition: opacity 0.5s ease-in-out;
+      }
+      .rotating-text p:first-child {
+      animation: showHide 8s infinite;
+      }
+      .rotating-text p:last-child {
+      animation: showHide 8s infinite reverse;
+      }
+      @keyframes showHide {
+      0%, 45% {
+      opacity: 1;
+      }
+      50%, 95% {
+      opacity: 0;
+      }
+      100% {
+      opacity: 1;
+      }
+      }
+      .skill-tag {
+      transition: all 0.3s ease;
+      background-color: rgba(79, 70, 229, 0.1);
+      color: #4F46E5;
+      border: 1px solid rgba(79, 70, 229, 0.2);
+      }
+      .skill-tag:hover {
+      background-color: rgba(79, 70, 229, 0.15);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.1);
+      }
+      .scroll-indicator {
+      animation: bounce 2s infinite;
+      }
+      @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+      }
+      40% {
+      transform: translateY(-10px);
+      }
+      60% {
+      transform: translateY(-5px);
+      }
+      }
+    </style>
+  </head>
+  <body class="bg-white text-gray-800">
+    <!-- Hero Section -->
+    <section
+      class="gradient-bg min-h-screen flex items-center relative overflow-hidden"
+    >
+      <div
+        class="container mx-auto px-6 py-24 md:py-32 flex flex-col md:flex-row items-center"
+      >
+        <div class="md:w-1/2 mb-12 md:mb-0 z-10">
+          <h1
+            class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-gray-900"
+          >
+            Analytical <span class="text-primary">Thinker</span>, Creative
+            Builder
+          </h1>
+          <div
+            class="h-[4.5rem] md:h-[3.5rem] overflow-hidden mb-8 max-w-[800px]"
+          >
+            <div class="rotating-text">
+              <p class="text-xl md:text-2xl text-gray-700 font-light">
+                Merging intuition and analytics to design solutions that speak
+                with data.
+              </p>
+              <p class="text-xl md:text-2xl text-gray-700 font-light">
+                Where bold ideas meet sharp analytics — transforming insights
+                into real impact.
+              </p>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-3 mb-8">
+            <span
+              class="skill-tag px-4 py-2 rounded-full text-sm font-medium transition-all duration-300"
+              >Consulting</span
+            >
+            <span
+              class="skill-tag px-4 py-2 rounded-full text-sm font-medium transition-all duration-300"
+              >Machine Learning</span
+            >
+            <span
+              class="skill-tag px-4 py-2 rounded-full text-sm font-medium transition-all duration-300"
+              >Data Visualization</span
+            >
+            <span
+              class="skill-tag px-4 py-2 rounded-full text-sm font-medium transition-all duration-300"
+              >Product Strategy</span
+            >
+            <span
+              class="skill-tag px-4 py-2 rounded-full text-sm font-medium transition-all duration-300"
+              >Python</span
+            >
+            <span
+              class="skill-tag px-4 py-2 rounded-full text-sm font-medium transition-all duration-300"
+              >A/B Testing</span
+            >
+            <span
+              class="skill-tag px-4 py-2 rounded-full text-sm font-medium transition-all duration-300"
+              >NLP</span
+            >
+            <span
+              class="skill-tag px-4 py-2 rounded-full text-sm font-medium transition-all duration-300"
+              >Tableau</span
+            >
+            <span
+              class="skill-tag px-4 py-2 rounded-full text-sm font-medium transition-all duration-300"
+              >MySQL</span
+            >
+          </div>
+          <div class="flex gap-4">
+            <a
+              href="#about"
+              class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-button font-medium transition-all whitespace-nowrap"
+            >
+              Learn More
+            </a>
+            <a
+              href="#contact"
+              class="border border-gray-300 hover:border-primary hover:text-primary px-6 py-3 rounded-button font-medium transition-all whitespace-nowrap"
+            >
+              Contact Me
+            </a>
+          </div>
+        </div>
+        <div class="md:w-1/2 flex justify-center md:justify-end z-10">
+          <div
+            class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl"
+          >
+            <img
+              src="https://static.readdy.ai/image/08f526badae3de66a5d5cc294d1c09cd/4471d1190341c7300cd4977ce2fe5c2c.png"
+              alt="Sarah Chen"
+              class="w-full h-full object-cover object-top"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="absolute bottom-10 left-1/2 transform -translate-x-1/2 scroll-indicator"
+      >
+        <div class="w-10 h-10 flex items-center justify-center text-primary">
+          <i class="ri-arrow-down-line ri-xl"></i>
+        </div>
+      </div>
+    </section>
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+      <div class="container mx-auto px-6">
+        <div class="max-w-3xl mx-auto text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">About Me</h2>
+          <p class="text-lg text-gray-700 leading-relaxed">
+            Hi, I'm Sarah, a data-driven strategist who loves turning complex
+            data into clear, actionable insights. I specialize in machine
+            learning, predictive analytics, and data visualization to help
+            businesses uncover trends, improve strategies, and grow. With tools
+            like Python, Tableau, and cloud computing, I focus on solving real
+            problems and delivering meaningful results.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+          <div class="bg-gray-50 p-6 rounded-lg shadow-sm card-hover">
+            <div
+              class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4"
+            >
+              <i class="ri-lightbulb-line ri-lg text-primary"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">
+              Solution-Oriented Innovator
+            </h3>
+            <p class="text-gray-600">
+              Transforming complex challenges into elegant, data-driven
+              solutions with creative problem-solving.
+            </p>
+          </div>
+          <div class="bg-gray-50 p-6 rounded-lg shadow-sm card-hover">
+            <div
+              class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4"
+            >
+              <i class="ri-ai-generate-line ri-lg text-primary"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">AI & Analytics Expert</h3>
+            <p class="text-gray-600">
+              Leveraging advanced AI and analytics techniques to extract
+              meaningful insights from complex datasets.
+            </p>
+          </div>
+          <div class="bg-gray-50 p-6 rounded-lg shadow-sm card-hover">
+            <div
+              class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4"
+            >
+              <i class="ri-user-heart-line ri-lg text-primary"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">User-Centric Analyst</h3>
+            <p class="text-gray-600">
+              Focusing on human-centered approaches to ensure data solutions
+              address real user needs and pain points.
+            </p>
+          </div>
+          <div class="bg-gray-50 p-6 rounded-lg shadow-sm card-hover">
+            <div
+              class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4"
+            >
+              <i class="ri-bar-chart-box-line ri-lg text-primary"></i>
+            </div>
+            <h3 class="text-xl font-semibold mb-3">
+              Data Visualization Expert
+            </h3>
+            <p class="text-gray-600">
+              Creating clear, compelling visualizations that communicate complex
+              data stories effectively.
+            </p>
+          </div>
+        </div>
+        <div class="mt-20">
+          <h3 class="text-2xl font-bold mb-8 text-center">
+            Education & Skills
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+              <h4 class="text-xl font-semibold mb-4">Education</h4>
+              <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                <div class="flex items-start mb-4">
+                  <div class="w-12 h-12 flex items-center justify-center mr-4">
+                    <img
+                      src="https://static.readdy.ai/image/08f526badae3de66a5d5cc294d1c09cd/4578338c07fadf4e3945b3eb170b8c6d.png"
+                      alt="The University of Chicago Logo"
+                      class="w-full h-full object-contain"
+                    />
+                  </div>
+                  <div>
+                    <h5 class="font-semibold">
+                      Master of Science in Applied Data Science
+                    </h5>
+                    <p class="text-gray-600">
+                      The University of Chicago, 2024-2025
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div class="w-12 h-12 flex items-center justify-center mr-4">
+                    <img
+                      src="https://static.readdy.ai/image/08f526badae3de66a5d5cc294d1c09cd/8126b1d9c0abc16a11168171ce1318ba.png"
+                      alt="The Ohio State University Logo"
+                      class="w-full h-full object-contain"
+                    />
+                  </div>
+                  <div>
+                    <h5 class="font-semibold">
+                      Bachelor of Science in Economics & Mathematics
+                    </h5>
+                    <p class="text-gray-600">
+                      The Ohio State University, 2020-2024
+                    </p>
+                    <p class="text-gray-500 text-sm">
+                      Minoring in Business Analytics
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h4 class="text-xl font-semibold mb-4">Technical Skills</h4>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div
+                  class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-all"
+                >
+                  <div class="flex items-center mb-3">
+                    <div
+                      class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-lg mr-3"
+                    >
+                      <i class="ri-code-s-slash-line ri-lg text-primary"></i>
+                    </div>
+                    <h5 class="font-semibold">Data Science & Programming</h5>
+                  </div>
+                  <p class="text-gray-600 mb-3">
+                    Python ecosystem for data analysis and ML implementation
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span
+                      class="bg-primary/10 text-primary text-xs px-2 py-1 rounded"
+                      >NumPy</span
+                    >
+                    <span
+                      class="bg-primary/10 text-primary text-xs px-2 py-1 rounded"
+                      >Pandas</span
+                    >
+                    <span
+                      class="bg-primary/10 text-primary text-xs px-2 py-1 rounded"
+                      >Scikit-learn</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-all"
+                >
+                  <div class="flex items-center mb-3">
+                    <div
+                      class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-lg mr-3"
+                    >
+                      <i class="ri-brain-line ri-lg text-primary"></i>
+                    </div>
+                    <h5 class="font-semibold">
+                      Machine Learning and Deep Learning
+                    </h5>
+                  </div>
+                  <p class="text-gray-600 mb-3">
+                    Advanced ML algorithms and deep learning frameworks
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span
+                      class="bg-primary/10 text-primary text-xs px-2 py-1 rounded"
+                      >TensorFlow</span
+                    >
+                    <span
+                      class="bg-primary/10 text-primary text-xs px-2 py-1 rounded"
+                      >PyTorch</span
+                    >
+                    <span
+                      class="bg-primary/10 text-primary text-xs px-2 py-1 rounded"
+                      >Keras</span
+                    >
+                    <span
+                      class="bg-primary/10 text-primary text-xs px-2 py-1 rounded"
+                      >NLP</span
+                    >
+                    <span
+                      class="bg-primary/10 text-primary text-xs px-2 py-1 rounded"
+                      >LLM</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-all"
+                >
+                  <div class="flex items-center mb-3">
+                    <div
+                      class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-lg mr-3"
+                    >
+                      <i class="ri-database-2-line ri-lg text-primary"></i>
+                    </div>
+                    <h5 class="font-semibold">Data Engineering</h5>
+                  </div>
+                  <p class="text-gray-600 mb-3">
+                    Database management and data pipeline development
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span
+                      class="bg-primary/10 text-primary text-xs px-2 py-1 rounded"
+                      >PostgreSQL</span
+                    >
+                    <span
+                      class="bg-primary/10 text-primary text-xs px-2 py-1 rounded"
+                      >MongoDB</span
+                    >
+                    <span
+                      class="bg-primary/10 text-primary text-xs px-2 py-1 rounded"
+                      >Apache Spark</span
+                    >
+                    <span
+                      class="bg-primary/10 text-primary text-xs px-2 py-1 rounded"
+                      >Snowflake</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-all"
+                >
+                  <div class="flex items-center mb-3">
+                    <div
+                      class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-lg mr-3"
+                    >
+                      <i class="ri-bar-chart-box-line ri-lg text-primary"></i>
+                    </div>
+                    <h5 class="font-semibold">Data Visualization</h5>
+                  </div>
+                  <p class="text-gray-600 mb-3">
+                    Creating interactive dashboards and visual analytics
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span
+                      class="bg-primary/10 text-primary text-xs px-2 py-1 rounded"
+                      >Tableau</span
+                    >
+                    <span
+                      class="bg-primary/10 text-primary text-xs px-2 py-1 rounded"
+                      >PowerBI</span
+                    >
+                    <span
+                      class="bg-primary/10 text-primary text-xs px-2 py-1 rounded"
+                      >D3.js</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+          Featured Projects
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Project 1 -->
+          <div class="bg-white rounded-lg overflow-hidden shadow-md card-hover">
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=nutrition%2520app%2520interface%2520with%2520food%2520items%2520and%2520nutritional%2520data%2520visualization%2C%2520clean%2520modern%2520UI%2C%2520health%2520tracking%2C%2520food%2520analysis%2C%2520professional%2520app%2520design%2C%2520high%2520quality%2520render&width=600&height=400&seq=2&orientation=landscape"
+                alt="Nutrition Density Prediction App"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">
+                Nutrition Density Prediction App
+              </h3>
+              <p class="text-gray-600 mb-4">
+                An ML-powered application that predicts nutritional density of
+                food items using computer vision and advanced analytics.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-gray-100 text-xs font-medium px-2.5 py-1 rounded"
+                  >Python</span
+                >
+                <span
+                  class="bg-gray-100 text-xs font-medium px-2.5 py-1 rounded"
+                  >Streamlit</span
+                >
+                <span
+                  class="bg-gray-100 text-xs font-medium px-2.5 py-1 rounded"
+                  >Machine Learning</span
+                >
+              </div>
+              <a
+                href="https://food-nutrition-app-gntktsked4czxmkbe528he.streamlit.app/#d2415b35"
+                target="_blank"
+                class="inline-flex items-center text-primary hover:text-primary/80 font-medium"
+              >
+                View Demo
+                <i class="ri-external-link-line ri-sm ml-1"></i>
+              </a>
+            </div>
+          </div>
+          <!-- Project 2 -->
+          <div class="bg-white rounded-lg overflow-hidden shadow-md card-hover">
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=e-commerce%2520recommendation%2520engine%2520interface%2520showing%2520product%2520recommendations%2C%2520user%2520interface%2520with%2520product%2520cards%2C%2520personalized%2520shopping%2520experience%2C%2520modern%2520clean%2520design%2C%2520professional%2520UI%2C%2520high%2520quality%2520render&width=600&height=400&seq=3&orientation=landscape"
+                alt="E-Commerce Recommendation Engine"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">
+                E-Commerce Recommendation Engine
+              </h3>
+              <p class="text-gray-600 mb-4">
+                A sophisticated recommendation system that increased conversion
+                rates by 27% through personalized product suggestions.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-gray-100 text-xs font-medium px-2.5 py-1 rounded"
+                  >Python</span
+                >
+                <span
+                  class="bg-gray-100 text-xs font-medium px-2.5 py-1 rounded"
+                  >TensorFlow</span
+                >
+                <span
+                  class="bg-gray-100 text-xs font-medium px-2.5 py-1 rounded"
+                  >AWS</span
+                >
+              </div>
+              <a
+                href="#"
+                class="inline-flex items-center text-primary hover:text-primary/80 font-medium"
+              >
+                View Details
+                <i class="ri-arrow-right-line ri-sm ml-1"></i>
+              </a>
+            </div>
+          </div>
+          <!-- Project 3 -->
+          <div class="bg-white rounded-lg overflow-hidden shadow-md card-hover">
+            <div class="h-48 overflow-hidden">
+              <img
+                src="https://readdy.ai/api/search-image?query=data%2520visualization%2520dashboard%2520with%2520charts%2C%2520graphs%2C%2520and%2520analytics%2520metrics%2C%2520business%2520intelligence%2520interface%2C%2520clean%2520modern%2520design%2C%2520professional%2520dashboard%2C%2520high%2520quality%2520render&width=600&height=400&seq=4&orientation=landscape"
+                alt="Customer Segmentation Analysis"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-2">
+                Customer Segmentation Analysis
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Developed a comprehensive customer segmentation model that
+                helped optimize marketing strategies and increase ROI.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="bg-gray-100 text-xs font-medium px-2.5 py-1 rounded"
+                  >R</span
+                >
+                <span
+                  class="bg-gray-100 text-xs font-medium px-2.5 py-1 rounded"
+                  >Tableau</span
+                >
+                <span
+                  class="bg-gray-100 text-xs font-medium px-2.5 py-1 rounded"
+                  >Clustering</span
+                >
+              </div>
+              <a
+                href="#"
+                class="inline-flex items-center text-primary hover:text-primary/80 font-medium"
+              >
+                View Details
+                <i class="ri-arrow-right-line ri-sm ml-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-12">
+          <a
+            href="#"
+            class="inline-flex items-center justify-center bg-white border border-gray-300 hover:border-primary hover:text-primary px-6 py-3 rounded-button font-medium transition-all whitespace-nowrap"
+          >
+            View All Projects
+            <i class="ri-arrow-right-line ri-sm ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+<section id="experience" class="py-20 bg-white">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center">
+      Professional Experience
+    </h2>
+    <div class="max-w-3xl mx-auto relative pl-12">
+      <div class="absolute left-0 top-0 bottom-0 w-0.5 bg-gray-200"></div>
+
+      <!-- Kuaishou -->
+      <div class="relative timeline-item pb-12">
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+          <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+            <h3 class="text-xl font-bold">Digital Product Manager Intern</h3>
+            <span class="bg-primary/10 text-primary text-sm font-medium px-3 py-1 rounded-full">
+              July 2024 - November 2024
+            </span>
+          </div>
+          <h4 class="text-lg font-medium text-gray-700 mb-3">Kuaishou Technology – Beijing, China</h4>
+          <ul class="text-gray-600 mb-4 list-disc list-inside space-y-2">
+            <li>Analyzed 10M+ transactions using MySQL & Power BI, optimizing ad campaign targeting and increasing commercial consumption by 42.5%.</li>
+            <li>Led A/B tests on content relevance and implemented UI/UX improvements, boosting ad purchases by 18%.</li>
+            <li>Developed a clustering-based algorithm for high-value user segmentation, improving conversions by 25% and installs by 35%.</li>
+          </ul>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-gray-100 text-xs font-medium px-2.5 py-1 rounded">Product Analytics</span>
+            <span class="bg-gray-100 text-xs font-medium px-2.5 py-1 rounded">MySQL</span>
+            <span class="bg-gray-100 text-xs font-medium px-2.5 py-1 rounded">Power BI</span>
+            <span class="bg-gray-100 text-xs font-medium px-2.5 py-1 rounded">A/B Testing</span>
+            <span class="bg-gray-100 text-xs font-medium px-2.5 py-1 rounded">Advertising Strategy</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- All-State Brokerage -->
+      <div class="relative timeline-item pb-12">
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+          <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+            <h3 class="text-xl font-bold">Data Analyst Intern</h3>
+            <span class="bg-primary/10 text-primary text-sm font-medium px-3 py-1 rounded-full">
+              September 2023 - May 2024
+            </span>
+          </div>
+          <h4 class="text-lg font-medium text-gray-700 mb-3">All-State Brokerage – Columbus, OH, USA</h4>
+          <ul class="text-gray-600 mb-4 list-disc list-inside space-y-2">
+            <li>Built volatility models (ARIMA, GARCH) for 3-year sales data to inform promo timing and avoid 15% revenue loss.</li>
+            <li>Applied Random Forest and Monte Carlo simulations to forecast trends and optimize retail campaigns.</li>
+            <li>Created interactive dashboards with VBA, Tableau & R, increasing sales visibility and driving a 20% profit lift.</li>
+          </ul>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-gray-100 text-xs font-medium px-2.5 py-1 rounded">Tableau</span>
+            <span class="bg-gray-100 text-xs font-medium px-2.5 py-1 rounded">Forecasting</span>
+            <span class="bg-gray-100 text-xs font-medium px-2.5 py-1 rounded">Time Series Analysis</span>
+            <span class="bg-gray-100 text-xs font-medium px-2.5 py-1 rounded">Retail Strategy</span>
+            <span class="bg-gray-100 text-xs font-medium px-2.5 py-1 rounded">Excel VBA</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Deloitte -->
+      <div class="relative timeline-item pb-12">
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+          <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+            <h3 class="text-xl font-bold">Consulting Intern</h3>
+            <span class="bg-primary/10 text-primary text-sm font-medium px-3 py-1 rounded-full">
+              May 2023 - August 2023
+            </span>
+          </div>
+          <h4 class="text-lg font-medium text-gray-700 mb-3">Deloitte – Shanghai, China</h4>
+          <ul class="text-gray-600 mb-4 list-disc list-inside space-y-2">
+            <li>Designed Salesforce Migration Tool UI in Figma, reducing task time by 30% and training needs by 40%.</li>
+            <li>Conducted market sizing with TAM/SAM/SOM models to guide client investment decisions.</li>
+            <li>Used K-means and DBSCAN clustering for demand segmentation and entry strategy evaluation.</li>
+          </ul>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-gray-100 text-xs font-medium px-2.5 py-1 rounded">Consulting</span>
+            <span class="bg-gray-100 text-xs font-medium px-2.5 py-1 rounded">UI/UX</span>
+            <span class="bg-gray-100 text-xs font-medium px-2.5 py-1 rounded">Market Sizing</span>
+            <span class="bg-gray-100 text-xs font-medium px-2.5 py-1 rounded">Clustering</span>
+            <span class="bg-gray-100 text-xs font-medium px-2.5 py-1 rounded">Figma</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- iFLYTEK -->
+      <div class="relative timeline-item">
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+          <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+            <h3 class="text-xl font-bold">Big Data Engineer Assistant</h3>
+            <span class="bg-primary/10 text-primary text-sm font-medium px-3 py-1 rounded-full">
+              March 2023 - May 2023
+            </span>
+          </div>
+          <h4 class="text-lg font-medium text-gray-700 mb-3">iFLYTEK – Hefei, China</h4>
+          <ul class="text-gray-600 mb-4 list-disc list-inside space-y-2">
+            <li>Developed ETL pipelines using SQL, Python, and Airflow, reducing latency by 30%.</li>
+            <li>Improved query efficiency by 40% via indexing and materialized views.</li>
+            <li>Ensured 99% accuracy via data validation and anomaly detection tools.</li>
+          </ul>
+          <div class="flex flex-wrap gap-2">
+            <span class="bg-gray-100 text-xs font-medium px-2.5 py-1 rounded">ETL</span>
+            <span class="bg-gray-100 text-xs font-medium px-2.5 py-1 rounded">SQL</span>
+            <span class="bg-gray-100 text-xs font-medium px-2.5 py-1 rounded">Python</span>
+            <span class="bg-gray-100 text-xs font-medium px-2.5 py-1 rounded">Apache Airflow</span>
+            <span class="bg-gray-100 text-xs font-medium px-2.5 py-1 rounded">Data Engineering</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resume Download -->
+    <div class="text-center mt-16">
+      <a href="#" class="inline-flex items-center justify-center bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-button font-medium transition-all whitespace-nowrap">
+        Download Resume
+        <i class="ri-download-line ri-sm ml-2"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center">
+          Get In Touch
+        </h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          <div>
+            <h3 class="text-2xl font-semibold mb-6">Contact Information</h3>
+            <p class="text-gray-600 mb-8">
+              I'm always open to new opportunities, collaborations, or just a
+              friendly chat about data science and analytics. Feel free to reach
+              out!
+            </p>
+            <div class="space-y-4">
+              <div class="flex items-start">
+                <div
+                  class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-lg mr-4"
+                >
+                  <i class="ri-mail-line ri-lg text-primary"></i>
+                </div>
+                <div>
+                  <h4 class="font-medium">Email</h4>
+                  <a
+                    href="mailto:qinghuax@uchicago.edu"
+                    class="text-gray-600 hover:text-primary"
+                    >qinghuax@uchicago.edu</a
+                  >
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div
+                  class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-lg mr-4"
+                >
+                  <i class="ri-phone-line ri-lg text-primary"></i>
+                </div>
+                <div>
+                  <h4 class="font-medium">Phone</h4>
+                  <p class="text-gray-600">
+                    (+1) 380-239-9855<br />
+                    (+86) 18855186010
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <div
+                  class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-lg mr-4"
+                >
+                  <i class="ri-linkedin-line ri-lg text-primary"></i>
+                </div>
+                <div>
+                  <h4 class="font-medium">LinkedIn</h4>
+                  <a
+                    href="https://www.linkedin.com/in/qinghua-xia-479199252/"
+                    class="text-gray-600 hover:text-primary"
+                    target="_blank"
+                    >linkedin.com/in/qinghua-xia-479199252</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <form class="bg-white p-8 rounded-lg shadow-sm">
+              <div class="mb-6">
+                <label
+                  for="name"
+                  class="block text-sm font-medium text-gray-700 mb-2"
+                  >Name</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                  placeholder="Your name"
+                />
+              </div>
+              <div class="mb-6">
+                <label
+                  for="email"
+                  class="block text-sm font-medium text-gray-700 mb-2"
+                  >Email</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                  placeholder="Your email"
+                />
+              </div>
+              <div class="mb-6">
+                <label
+                  for="message"
+                  class="block text-sm font-medium text-gray-700 mb-2"
+                  >Message</label
+                >
+                <textarea
+                  id="message"
+                  rows="4"
+                  class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                  placeholder="Your message"
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="w-full bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-button font-medium transition-all whitespace-nowrap"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-6 md:mb-0">
+            <h2 class="text-2xl font-['Pacifico'] mb-2">Qinghua Xia</h2>
+            <p class="text-gray-400">Data Scientist & Product Analyst</p>
+          </div>
+          <div class="flex space-x-4">
+            <a
+              href="#"
+              class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition-all"
+            >
+              <i class="ri-linkedin-line ri-lg"></i>
+            </a>
+            <a
+              href="#"
+              class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition-all"
+            >
+              <i class="ri-twitter-x-line ri-lg"></i>
+            </a>
+            <a
+              href="#"
+              class="w-10 h-10 flex items-center justify-center bg-gray-800 hover:bg-primary rounded-full transition-all"
+            >
+              <i class="ri-mail-line ri-lg"></i>
+            </a>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-gray-400 text-sm mb-4 md:mb-0">
+            © 2025 Qinghua Xia. All rights reserved.
+          </p>
+          <div class="flex space-x-6">
+            <a href="#" class="text-gray-400 hover:text-white text-sm"
+              >Privacy Policy</a
+            >
+            <a href="#" class="text-gray-400 hover:text-white text-sm"
+              >Terms of Service</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute("href");
+            if (targetId !== "#") {
+              document.querySelector(targetId).scrollIntoView({
+                behavior: "smooth",
+              });
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
